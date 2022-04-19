@@ -1,0 +1,91 @@
+#mainContainer {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+
+#contentContainer {
+    height: 80vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+}
+
+#leftContainer {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+#tempContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 64px;
+    height: 25%;
+    width: 20%;
+}
+
+#dateContainer {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: 25%;
+    width: 20%;
+}
+
+#name {
+    font-size: xx-large;
+    font-weight: 600;
+    margin-bottom: 0px;
+    height: 25%;
+}
+
+#date {
+    margin-top: 0px;
+    height: 25%;
+}
+
+#conditionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    height: 25%;
+    width: 20%;
+}
+
+#icon {
+    height: 25%;
+}
+
+#conditionText {
+    height: 25%;
+}
+
+#rightContainer {
+    width: 40%;
+    height: 100%;
+}
+
+#searchBar {
+    height: 50%;
+    width: 100%;
+    background-color: blueviolet;
+}
+
+#weatherInformation {
+    height: 50%;
+    width: 100%;
+    background-color: coral;
+}
