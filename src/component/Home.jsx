@@ -6,8 +6,21 @@ import MainWeather from './MainWeather';
 import WeatherDetail from './WeatherDetail';
 
 const Home = () => {
+    let location = 'paris';//Default weather city
 
-    let location = 'saint-omer';
+    //Get data from user query
+    let test = new URLSearchParams(window.location.search)
+    if(test.get("user") !== null){
+        location = test.get("user");
+    }
+
+    //Function to rerender when user search a city and passing on props to search component
+    const [render, setRender] = useState(0);
+    function rerender(){
+        setRender(render + 1);
+    }
+
+    //Get data from API
     const [currentWeather, setCurrentWeather] = useState([]);
      function getCurrentWeather(){
          return new Promise((resolve, reject) => {
@@ -23,7 +36,8 @@ const Home = () => {
     }
     useEffect(() => {
         callerBackgroundImage();
-    }, [])
+    }, [location])
+
 
     //change the background dynamically according to the announced weather
     let backgroundValue;
@@ -64,13 +78,14 @@ const Home = () => {
                 break;
         }
     }
+
   return (
       <div>
     <div id={styles.mainContainer} style={{ backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat' }}>
         {currentWeather.length !== 0 && 
         <div id={styles.contentContainer}>
             <MainWeather currentWeather={currentWeather} background={background}></MainWeather>
-            <WeatherDetail currentWeather={currentWeather} />
+            <WeatherDetail currentWeather={currentWeather} rerender={rerender}/>
         </div>
         }
     </div>

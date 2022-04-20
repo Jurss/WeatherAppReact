@@ -1,12 +1,11 @@
 import React from 'react';
-import styles from './css/weatherDetail.module.css'
+import styles from './css/weatherDetail.module.css';
+import Search from './Search';
 
 const WeatherDetail = (props) => {
   return (
       <div id={styles.rightContainer}>
-        <div id={styles.searchBar}>
-            fer
-        </div>
+          <Search rerender={props.rerender}/>
         <div id={styles.weatherInformation}>
             <div id={styles.weatherDetailTitle}>
                 <h4>Weather Details</h4>

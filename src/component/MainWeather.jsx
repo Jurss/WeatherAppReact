@@ -2,7 +2,9 @@ import React from 'react';
 import styles from './css/mainWeather.module.css'
 
 const MainWeather = (props) => {
-    let date = new Date();
+    let timezone = props.currentWeather.location.tz_id;
+    let date = new Date().toLocaleString("fr-FR", {timeZone: timezone});
+    let getHoursFromCity = date.slice(12, 17);
     let temp = Math.trunc(props.currentWeather.current.temp_c);
 
     return (
@@ -14,7 +16,7 @@ const MainWeather = (props) => {
                 
                 <div id={styles.dateContainer}>
                     <p id={styles.name}>{props.currentWeather.location.name}</p>
-                    <p id={styles.date}>{date.getHours()}:{date.getMinutes()}</p>
+                    <p id={styles.date}>{getHoursFromCity}</p>
                 </div>
                 <div id={styles.conditionContainer}>
                     <div id={styles.icon}>
