@@ -1,62 +1,79 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { getBackgroundImage } from '../logic/GetBackgroundImage';
-import { GetCurrentWeather } from '../logic/GetCurrentWeather';
+import { getBackgroundImage } from '../logic/GetCodeBackgroundImage';
 import styles from './css/home.module.css';
-import cloudy from '../assets/background/cloudy.jpg';
-import hail from '../assets/background/hail.jpg';
-import mist from '../assets/background/mist.jpg';
-import rain from '../assets/background/rain.jpg';
-import snow from '../assets/background/snow.jpg';
-import thunder from '../assets/background/thunder.jpg';
-import sunny from '../assets/background/thunder.jpg';
+import MainWeather from './MainWeather';
+import WeatherDetail from './WeatherDetail';
 
 const Home = () => {
 
-    let location = 'Paris';
-
+    let location = 'saint-omer';
     const [currentWeather, setCurrentWeather] = useState([]);
-    const getCurrentWeather = () => {
-        axios.get('https://api.weatherapi.com/v1/current.json?key=33fb7e8dabb04d91aae132258221804&q='+location+'&aqi=no')
-        .then((response) => {
-            setCurrentWeather(response.data)
-        })
+     function getCurrentWeather(){
+         return new Promise((resolve, reject) => {
+            axios.get('https://api.weatherapi.com/v1/current.json?key=33fb7e8dabb04d91aae132258221804&q='+location+'&aqi=no')
+            .then((response) => {
+                setCurrentWeather(response.data)
+            })
+            resolve();
+         })
+    }
+    async function callerBackgroundImage(){
+        await getCurrentWeather();
     }
     useEffect(() => {
-        getCurrentWeather();
-    }, [location])
+        callerBackgroundImage();
+    }, [])
 
-    let backgroundValue = getBackgroundImage(currentWeather.current.condition.code);
-
-    console.log(currentWeather.current)
-    let date = new Date();
-
+    //change the background dynamically according to the announced weather
+    let backgroundValue;
+    let background;
+    var thunder = require('../assets/background/thunder.jpg');
+    var sunny = require('../assets/background/sunny.jpg');
+    var cloudy = require('../assets/background/cloudy.jpg');
+    var hail = require('../assets/background/hail.jpg');
+    var mist = require('../assets/background/mist.jpg');
+    var rain = require('../assets/background/rain.jpg');
+    var snow = require('../assets/background/snow.jpg');
+    if(currentWeather.length !== 0){
+        backgroundValue = getBackgroundImage(currentWeather.current.condition.code);  
+        switch (backgroundValue) {
+            case 'sunny':
+                background = sunny;
+                break;
+            case 'rain':
+                background = rain;
+                break;
+            case 'snow':
+                background = snow;
+                break;
+            case 'thunder':
+                background = thunder;
+                break;
+            case 'cloudy':
+                background = cloudy;
+                break;
+            case 'hail':
+                background = hail;
+                break;
+            case 'mist':
+                background = mist;
+                break;
+            default:
+                background = sunny;
+                break;
+        }
+    }
   return (
-    <div id={styles.mainContainer}>
+      <div>
+    <div id={styles.mainContainer} style={{ backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat' }}>
+        {currentWeather.length !== 0 && 
         <div id={styles.contentContainer}>
-            <div id={styles.leftContainer} style={{}}>
-                <div id={styles.tempContainer}>
-                    <p>{currentWeather.current.temp_c}°</p>
-                </div>
-                
-                <div id={styles.dateContainer}>
-                    <p id={styles.name}>{currentWeather.location.name}</p>
-                    <p id={styles.date}>{date.getHours()}:{date.getMinutes()}</p>
-                </div>
-                <div id={styles.conditionContainer}>
-                    <div id={styles.icon}>
-                        <img id={styles.iconImg} src={currentWeather.current.condition.icon} alt="weather icon" />
-                    </div>
-                    <p id={styles.conditionText}>{currentWeather.current.condition.text}</p>
-                </div>
-            </div>
-            <div id={styles.rightContainer}>
-                <div id={styles.searchBar}>
-
-                </div>
-                <div id={styles.weatherInformation}></div>
-            </div>
+            <MainWeather currentWeather={currentWeather} background={background}></MainWeather>
+            <WeatherDetail currentWeather={currentWeather} />
         </div>
+        }
+    </div>
     </div>
   )
 }

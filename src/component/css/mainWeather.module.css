@@ -1,0 +1,84 @@
+#leftContainer {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+#infoContainer {
+    width: 50%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#tempContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 64px;
+    height: 100%;
+    width: 30%;
+}
+
+#dateContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+    width: 30%;
+}
+
+#conditionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+    width: 30%;
+}
+
+#name {
+    font-size: xx-large;
+    font-weight: 600;
+    margin-bottom: 0px;
+    max-height: 100%;
+    font-size: 14px;
+}
+
+#date {
+    margin-top: 0px;
+    height: 25%;
+}
+
+#icon {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#iconImg {
+    max-height: 48px;
+    max-width: 48px;
+}
+
+#conditionText {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}

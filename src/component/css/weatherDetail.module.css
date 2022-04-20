@@ -1,0 +1,50 @@
+#rightContainer {
+    width: 40%;
+    height: 100%;
+}
+
+#searchBar {
+    height: 50%;
+    width: 100%;
+    background-color: blueviolet;
+}
+
+#weatherInformation {
+    height: 50%;
+    width: 100%;
+    background-color: rgba(87, 76, 72, 0.507);
+    overflow: hidden;
+}
+
+#weatherDetailTitle {
+    overflow: hidden;
+    height: 25%;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    margin-left: 10%;
+}
+
+#weatherDetailContainer {
+    height: 75%;
+    margin-top: -3%;
+}
+
+.weatherDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 15%;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.weatherDetailsName {
+    color: rgba(61, 60, 60, 0.452);
+}
+
+.weatherDetailsValue {
+    color: white;
+}
