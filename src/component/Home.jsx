@@ -10,7 +10,6 @@ import 'react-notifications/lib/notifications.css';
 const Home = () => {
     let location = 'paris';//Default weather city
 
-
     //Get data from user query
     let query = new URLSearchParams(window.location.search)
     if(query.get("query") !== null){
@@ -25,7 +24,6 @@ const Home = () => {
 
 
     //Get data from API
-    const warning = 'warning';
     const [currentWeather, setCurrentWeather] = useState([]);
      function getCurrentWeather(){
          return new Promise((resolve, reject) => {
