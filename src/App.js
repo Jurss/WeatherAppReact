@@ -6,6 +6,7 @@ import {
     Routes,
     Route,
   } from "react-router-dom";
+import './assets/fonts/PlayfairDisplay.ttf';
 
 function App() {
 

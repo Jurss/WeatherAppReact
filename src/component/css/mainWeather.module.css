@@ -8,8 +8,8 @@
 }
 
 #infoContainer {
-    width: 50%;
-    height: 20%;
+    width: 70%;
+    height: 40%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -23,7 +23,7 @@
     align-items: center;
     color: white;
     font-weight: bold;
-    font-size: 64px;
+    font-size: 84px;
     height: 100%;
     width: 30%;
 }
@@ -53,12 +53,15 @@
     font-weight: 600;
     margin-bottom: 0px;
     max-height: 100%;
-    font-size: 14px;
+    font-size: 26px;
+    font-weight: 600;
 }
 
 #date {
     margin-top: 0px;
     height: 25%;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 #icon {
@@ -80,5 +83,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 26px;
+    font-weight: 600;
 }

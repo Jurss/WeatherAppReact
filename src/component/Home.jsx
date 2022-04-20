@@ -97,7 +97,6 @@ const Home = () => {
                 break;
         }
     }
-    console.log(backgroundBlurred)
 
   return (
       <div>
