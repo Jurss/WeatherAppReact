@@ -22,7 +22,6 @@ const Home = () => {
         setRender(render + 1);
     }
 
-
     //Get data from API
     const [currentWeather, setCurrentWeather] = useState([]);
      function getCurrentWeather(){
@@ -44,7 +43,6 @@ const Home = () => {
         callerBackgroundImage();
         // eslint-disable-next-line
     }, [location])
-
 
     //change the background dynamically according to the announced weather
     let backgroundValue;
