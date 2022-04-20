@@ -3,16 +3,10 @@
     height: 100%;
 }
 
-#searchBar {
-    height: 50%;
-    width: 100%;
-    background-color: blueviolet;
-}
-
 #weatherInformation {
     height: 50%;
     width: 100%;
-    background-color: rgba(69, 74, 105, 0.479);
+    background-color: #3c4c4ae3;
     overflow: hidden;
 }
 

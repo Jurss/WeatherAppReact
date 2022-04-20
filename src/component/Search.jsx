@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './css/weatherDetail.module.css';
+import styles from './css/search.module.css';
 import { useSearchParams } from 'react-router-dom';
+import searchIcon from '../assets/icon/searchIcon.png';
 
 const Search = (props) => {
     let [searchParams, setSearchParams] = useSearchParams();
@@ -17,14 +18,14 @@ const Search = (props) => {
       }
   return (
     <div id={styles.searchBar}>
-        <div style={{ display: "flex" }}>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <input defaultValue={user ?? undefined} type="text" name="user" />
-                </label>
-                <button type="submit">Search</button>
-            </form>
-        </div>
+        <form id={styles.form} onSubmit={handleSubmit}>
+            <label id={styles.label}>
+                <input id={styles.formInput} defaultValue={user ?? undefined} type="text" name="user" placeholder='Another location' autocomplete="off" />
+            </label>
+            <button id={styles.submitBtn} type="submit"><img src={searchIcon} alt="" /></button>
+            <div className={styles.bar}></div>
+        </form>
+        <div className={styles.bar}></div>
     </div>
   )
 }

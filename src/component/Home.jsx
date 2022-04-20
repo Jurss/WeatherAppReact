@@ -34,9 +34,10 @@ const Home = () => {
     async function callerBackgroundImage(){
         await getCurrentWeather();
     }
-    useEffect((location) => {
+    useEffect(() => {
         callerBackgroundImage();
-    },)
+        // eslint-disable-next-line
+    }, [location])
 
 
     //change the background dynamically according to the announced weather
