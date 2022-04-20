@@ -27,9 +27,9 @@ const Search = (props) => {
                 <input id={styles.formInput} defaultValue={query ?? undefined} type="text" name="query" placeholder='Another location' autoComplete="off" />
             </label>
             <button id={styles.submitBtn} type="submit"><img src={searchIcon} alt="" /></button>
-            <div className={styles.bar}></div>
+            <div className={styles.barTop}></div>
         </form>
-        <div className={styles.bar}></div>
+        <div className={styles.barBottom}></div>
 
         {/* Suggest city name */}
         <div id={styles.formSuggestContainer}>

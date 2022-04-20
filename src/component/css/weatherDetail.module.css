@@ -42,3 +42,16 @@
 .weatherDetailsValue {
     color: white;
 }
+
+@media screen and (max-width: 504px) {
+    .weatherDetails {
+        display: block;
+        max-height: 40px;
+    }
+    .weatherDetailsName {
+        max-height: 15px;
+    }
+    .weatherDetailsValue {
+        max-height: 15px;
+    }
+}

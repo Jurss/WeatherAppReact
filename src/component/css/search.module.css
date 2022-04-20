@@ -19,7 +19,16 @@
     height: 55%;
 }
 
-.bar {
+.barTop {
+    border: 1px solid grey;
+    width: 75%;
+    position: absolute;
+    top: 100%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.barBottom {
     border: 1px solid grey;
     width: 75%;
     position: absolute;
@@ -80,4 +89,33 @@
     cursor: pointer;
     outline: inherit;
     color: rgb(53, 48, 48);
+}
+
+@media screen and (max-width: 1070px) {
+    #formInput {
+        font-size: 16px;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 634px) {
+    #submitBtn {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .barTop {
+        border: 1px solid grey;
+        width: 75%;
+        position: absolute;
+        top: 140%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+    }
+    #submitBtn {
+        height: 50px;
+        width: 50px;
+    }
 }

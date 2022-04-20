@@ -86,3 +86,26 @@
     font-size: 26px;
     font-weight: 600;
 }
+
+@media screen and (max-width: 1385px) {
+    #conditionText {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1062px) {
+    #infoContainer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #conditionText,
+    #date,
+    #name {
+        font-size: 16px;
+    }
+    #tempContainer {
+        font-size: 48px;
+    }
+}
