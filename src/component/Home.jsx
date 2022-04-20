@@ -45,46 +45,63 @@ const Home = () => {
     //change the background dynamically according to the announced weather
     let backgroundValue;
     let background;
+    let backgroundBlurred;
     var thunder = require('../assets/background/thunder.jpg');
+    var thunderBlurred = require('../assets/backgroundBlurred/thunderBlurred.jpg')
     var sunny = require('../assets/background/sunny.jpg');
+    var sunnyBlurred = require('../assets/backgroundBlurred/sunnyBlurred.jpg')
     var cloudy = require('../assets/background/cloudy.jpg');
+    var cloudyBlurred = require('../assets/backgroundBlurred/cloudyBlurred.jpg')
     var hail = require('../assets/background/hail.jpg');
+    var hailBlurred = require('../assets/backgroundBlurred/hailBlurred.jpg')
     var mist = require('../assets/background/mist.jpg');
+    var mistBlurred = require('../assets/backgroundBlurred/mistBlurred.jpg')
     var rain = require('../assets/background/rain.jpg');
+    var rainBlurred = require('../assets/backgroundBlurred/rainBlurred.jpg')
     var snow = require('../assets/background/snow.jpg');
+    var snowBlurred = require('../assets/backgroundBlurred/snowBlurred.jpg')
     if(currentWeather.length !== 0){
         backgroundValue = getBackgroundImage(currentWeather.current.condition.code);  
         switch (backgroundValue) {
             case 'sunny':
                 background = sunny;
+                backgroundBlurred = sunnyBlurred;
                 break;
             case 'rain':
                 background = rain;
+                backgroundBlurred = rainBlurred;
                 break;
             case 'snow':
                 background = snow;
+                backgroundBlurred = snowBlurred;
                 break;
             case 'thunder':
                 background = thunder;
+                backgroundBlurred = thunderBlurred;
                 break;
             case 'cloudy':
                 background = cloudy;
+                backgroundBlurred = cloudyBlurred;
                 break;
             case 'hail':
                 background = hail;
+                backgroundBlurred = hailBlurred;
                 break;
             case 'mist':
                 background = mist;
+                backgroundBlurred = mistBlurred;
                 break;
             default:
                 background = sunny;
+                backgroundBlurred = sunnyBlurred;
                 break;
         }
     }
+    console.log(backgroundBlurred)
 
   return (
       <div>
-    <div id={styles.mainContainer} style={{ backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat' }}>
+    <div id={styles.mainContainer} style={{ backgroundImage: `url(${backgroundBlurred})`, backgroundRepeat: 'no-repeat' }}>
         {currentWeather.length !== 0 && 
         <div id={styles.contentContainer}>
             <MainWeather currentWeather={currentWeather} background={background}></MainWeather>
