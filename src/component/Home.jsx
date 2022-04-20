@@ -4,6 +4,8 @@ import { getBackgroundImage } from '../logic/GetCodeBackgroundImage';
 import styles from './css/home.module.css';
 import MainWeather from './MainWeather';
 import WeatherDetail from './WeatherDetail';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const Home = () => {
     let location = 'paris';//Default weather city
@@ -23,12 +25,16 @@ const Home = () => {
 
 
     //Get data from API
+    const warning = 'warning';
     const [currentWeather, setCurrentWeather] = useState([]);
      function getCurrentWeather(){
          return new Promise((resolve, reject) => {
             axios.get('https://api.weatherapi.com/v1/current.json?key=33fb7e8dabb04d91aae132258221804&q='+location+'&aqi=no')
             .then((response) => {
                 setCurrentWeather(response.data)
+            })
+            .catch(function(err){
+                NotificationManager.warning('Sorry, this search did not return anything', 'Fail', 10000);
             })
             resolve();
          })
@@ -99,15 +105,16 @@ const Home = () => {
     }
 
   return (
-      <div>
-    <div id={styles.mainContainer} style={{ backgroundImage: `url(${backgroundBlurred})`, backgroundRepeat: 'no-repeat' }}>
-        {currentWeather.length !== 0 && 
-        <div id={styles.contentContainer}>
-            <MainWeather currentWeather={currentWeather} background={background}></MainWeather>
-            <WeatherDetail currentWeather={currentWeather} rerender={rerender}/>
+    <div>
+        <div id={styles.mainContainer} style={{ backgroundImage: `url(${backgroundBlurred})`, backgroundRepeat: 'no-repeat' }}>
+            {currentWeather.length !== 0 && 
+            <div id={styles.contentContainer}>
+                <MainWeather currentWeather={currentWeather} background={background}></MainWeather>
+                <WeatherDetail currentWeather={currentWeather} rerender={rerender}/>
+            </div>
+            }
         </div>
-        }
-    </div>
+        <NotificationContainer />
     </div>
   )
 }
