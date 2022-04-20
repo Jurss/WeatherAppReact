@@ -34,9 +34,9 @@ const Home = () => {
     async function callerBackgroundImage(){
         await getCurrentWeather();
     }
-    useEffect(() => {
+    useEffect((location) => {
         callerBackgroundImage();
-    }, [location])
+    },)
 
 
     //change the background dynamically according to the announced weather

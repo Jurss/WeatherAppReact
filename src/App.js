@@ -6,7 +6,6 @@ import {
     Routes,
     Route,
   } from "react-router-dom";
-import Search from './component/Search';
 
 function App() {
 

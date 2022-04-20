@@ -52,7 +52,7 @@ export function getBackgroundImage(condition) {
         case 1264:
             result = 'hail';
             break;
-        case 1273, 1276, 1279, 1282:
+        case 1273:
         case 1276:
         case 1279:
         case 1282:

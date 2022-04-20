@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './css/weatherDetail.module.css';
-import { Link, useSearchParams } from 'react-router-dom';
-import Home from './Home';
+import { useSearchParams } from 'react-router-dom';
 
 const Search = (props) => {
     let [searchParams, setSearchParams] = useSearchParams();
@@ -10,7 +9,7 @@ const Search = (props) => {
         event.preventDefault();
         //rerender the Home component
         props.rerender();
-        
+
         let formData = new FormData(event.currentTarget);
         let newUser = formData.get("user");
         if (!newUser) return;
