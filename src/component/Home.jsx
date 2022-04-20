@@ -8,10 +8,11 @@ import WeatherDetail from './WeatherDetail';
 const Home = () => {
     let location = 'paris';//Default weather city
 
+
     //Get data from user query
-    let test = new URLSearchParams(window.location.search)
-    if(test.get("user") !== null){
-        location = test.get("user");
+    let query = new URLSearchParams(window.location.search)
+    if(query.get("query") !== null){
+        location = query.get("query");
     }
 
     //Function to rerender when user search a city and passing on props to search component
@@ -19,6 +20,7 @@ const Home = () => {
     function rerender(){
         setRender(render + 1);
     }
+
 
     //Get data from API
     const [currentWeather, setCurrentWeather] = useState([]);

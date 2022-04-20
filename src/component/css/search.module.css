@@ -54,3 +54,30 @@
     cursor: pointer;
     outline: inherit;
 }
+
+#formSuggestContainer {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+.formSuggest {
+    height: 15%;
+}
+
+.inputSuggest {
+    display: none;
+}
+
+.btnSuggest {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    color: rgb(53, 48, 48);
+}
